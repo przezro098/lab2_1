@@ -56,6 +56,15 @@ class BinarySearchTest {
         Assertions.assertEquals(result.getPosition(), pos);
     }
 
+    @Test
+    void SearchingNoneExistingElementInMultiSeqTest() {
+        int value = 5;
+        int pos = -1;
+        var result = binarySearch.search(value, MultiElementSeq);
+        Assertions.assertFalse(result.isFound());
+        Assertions.assertEquals(result.getPosition(), pos);
+    }
+
 
 
 
