@@ -38,4 +38,17 @@ class BinarySearchTest {
         Assertions.assertEquals(result.getPosition(), pos);
     }
 
+    @Test
+    void SearchingLastElementInMultiSeqTest() {
+        int value = 4;
+        int pos = 4;
+        var result = binarySearch.search(value, MultiElementSeq);
+        Assertions.assertTrue(result.isFound());
+        Assertions.assertEquals(result.getPosition(), pos);
+    }
+
+
+
+
+
 }
