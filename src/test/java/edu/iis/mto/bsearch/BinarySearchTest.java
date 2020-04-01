@@ -11,6 +11,7 @@ class BinarySearchTest {
     int[] emptySeq = {};
     int[] singleElementSeq = {0};
     int[] multiElementSeq = {0,1,2,3,4};
+    int[] sameElementSeq = {0,0,0,0,0};
     BinarySearch binarySearch = BinarySearch.create();
 
     @Test
@@ -60,6 +61,10 @@ class BinarySearchTest {
         assertThrows(IllegalArgumentException.class, () -> binarySearch.search(0, emptySeq));
     }
 
+    @Test
+    void SearchingInSameElementSeq() {
+        assertThrows(IllegalArgumentException.class, () -> binarySearch.search(0, sameElementSeq));
+    }
 
 
 
