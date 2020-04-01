@@ -47,6 +47,14 @@ class BinarySearchTest {
         Assertions.assertEquals(result.getPosition(), pos);
     }
 
+    @Test
+    void SearchingCentralElementInMultiSeqTest() {
+        int value = 2;
+        int pos = 2;
+        var result = binarySearch.search(value, MultiElementSeq);
+        Assertions.assertTrue(result.isFound());
+        Assertions.assertEquals(result.getPosition(), pos);
+    }
 
 
 
