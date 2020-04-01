@@ -3,6 +3,8 @@
  */
 package edu.iis.mto.bsearch;
 
+import java.util.stream.IntStream;
+
 /**
  * Klasa dla wyszukiwania binarnego
  *
@@ -10,6 +12,21 @@ package edu.iis.mto.bsearch;
 public class BinarySearch {
 
     BinarySearch() {}
+
+    public static boolean isSorted(int[] array) {
+        return IntStream.range(0, array.length - 1).noneMatch(i -> array[i] > array[i + 1]);
+    }
+
+    public static boolean containsDuplicate(int[] array) {
+        for (int i = 1; i < array.length; ++ i) {
+            for (int j = 0; j < i; ++ j) {
+                if (array[i] == array[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     /**
      * Metoda realizujaca wyszukiwanie binarne
@@ -23,6 +40,7 @@ public class BinarySearch {
      */
     public SearchResult search(int key, int[] seq) {
         if(seq.length == 0) throw new IllegalArgumentException();
+        if(!isSorted(seq) || containsDuplicate(seq)) throw new IllegalArgumentException();
         int start = 0;
         int end = seq.length - 1;
         int center;
