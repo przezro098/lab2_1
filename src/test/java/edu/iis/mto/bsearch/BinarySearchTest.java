@@ -2,6 +2,8 @@ package edu.iis.mto.bsearch;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 class BinarySearchTest {
 
@@ -16,8 +18,8 @@ class BinarySearchTest {
         value = 0;
         pos = 0;
         var result = binarySearch.search(value, singleElementSeq);
-        Assertions.assertTrue(result.isFound());
-        Assertions.assertEquals(singleElementSeq[result.getPosition()], pos);
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), is(pos));
     }
 
     @Test
@@ -25,8 +27,8 @@ class BinarySearchTest {
         value = 1;
         pos = -1;
         var result = binarySearch.search(value, singleElementSeq);
-        Assertions.assertFalse(result.isFound());
-        Assertions.assertEquals(result.getPosition(), pos);
+        assertThat(result.isFound(), is(false));
+        assertThat(result.getPosition(), is(pos));
     }
 
     @Test
@@ -34,8 +36,8 @@ class BinarySearchTest {
         value = 0;
         pos = 0;
         var result = binarySearch.search(value, MultiElementSeq);
-        Assertions.assertTrue(result.isFound());
-        Assertions.assertEquals(result.getPosition(), pos);
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), is(pos));
     }
 
     @Test
@@ -43,8 +45,8 @@ class BinarySearchTest {
         value = 4;
         pos = 4;
         var result = binarySearch.search(value, MultiElementSeq);
-        Assertions.assertTrue(result.isFound());
-        Assertions.assertEquals(result.getPosition(), pos);
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), is(pos));
     }
 
     @Test
@@ -52,8 +54,8 @@ class BinarySearchTest {
         value = 2;
         pos = 2;
         var result = binarySearch.search(value, MultiElementSeq);
-        Assertions.assertTrue(result.isFound());
-        Assertions.assertEquals(result.getPosition(), pos);
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), is(pos));
     }
 
     @Test
@@ -61,8 +63,8 @@ class BinarySearchTest {
         value = 5;
         pos = -1;
         var result = binarySearch.search(value, MultiElementSeq);
-        Assertions.assertFalse(result.isFound());
-        Assertions.assertEquals(result.getPosition(), pos);
+        assertThat(result.isFound(), is(false));
+        assertThat(result.getPosition(), is(pos));
     }
 
 
