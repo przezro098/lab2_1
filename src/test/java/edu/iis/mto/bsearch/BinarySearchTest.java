@@ -3,63 +3,63 @@ package edu.iis.mto.bsearch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class BinarySearchTest {
 
     int[] singleElementSeq = {0};
     int[] MultiElementSeq = {0,1,2,3,4};
+    int pos = 0;
+    int value = 0;
     BinarySearch binarySearch = BinarySearch.create();
 
     @Test
-    void SearchingExistingElementInSingleSeqTest() {
-        int value = 0;
-        int pos = 0;
+    void SearchingExistingElementInSingleSeq() {
+        value = 0;
+        pos = 0;
         var result = binarySearch.search(value, singleElementSeq);
         Assertions.assertTrue(result.isFound());
         Assertions.assertEquals(singleElementSeq[result.getPosition()], pos);
     }
 
     @Test
-    void SearchingNoneExistingElementInSingleSeqTest() {
-        int value = 1;
-        int pos = -1;
+    void SearchingNoneExistingElementInSingleSeq() {
+        value = 1;
+        pos = -1;
         var result = binarySearch.search(value, singleElementSeq);
         Assertions.assertFalse(result.isFound());
         Assertions.assertEquals(result.getPosition(), pos);
     }
 
     @Test
-    void SearchingFirstElementInMultiSeqTest() {
-        int value = 0;
-        int pos = 0;
+    void SearchingFirstElementInMultiSeq() {
+        value = 0;
+        pos = 0;
         var result = binarySearch.search(value, MultiElementSeq);
         Assertions.assertTrue(result.isFound());
         Assertions.assertEquals(result.getPosition(), pos);
     }
 
     @Test
-    void SearchingLastElementInMultiSeqTest() {
-        int value = 4;
-        int pos = 4;
+    void SearchingLastElementInMultiSeq() {
+        value = 4;
+        pos = 4;
         var result = binarySearch.search(value, MultiElementSeq);
         Assertions.assertTrue(result.isFound());
         Assertions.assertEquals(result.getPosition(), pos);
     }
 
     @Test
-    void SearchingCentralElementInMultiSeqTest() {
-        int value = 2;
-        int pos = 2;
+    void SearchingCentralElementInMultiSeq() {
+        value = 2;
+        pos = 2;
         var result = binarySearch.search(value, MultiElementSeq);
         Assertions.assertTrue(result.isFound());
         Assertions.assertEquals(result.getPosition(), pos);
     }
 
     @Test
-    void SearchingNoneExistingElementInMultiSeqTest() {
-        int value = 5;
-        int pos = -1;
+    void SearchingNoneExistingElementInMultiSeq() {
+        value = 5;
+        pos = -1;
         var result = binarySearch.search(value, MultiElementSeq);
         Assertions.assertFalse(result.isFound());
         Assertions.assertEquals(result.getPosition(), pos);
