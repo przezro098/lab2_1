@@ -19,4 +19,13 @@ class BinarySearchTest {
         Assertions.assertEquals(singleElementSeq[result.getPosition()], pos);
     }
 
+    @Test
+    void SearchingNoneExistingElementInSingleSeqTest() {
+        int value = 1;
+        int pos = -1;
+        var result = binarySearch.search(value, singleElementSeq);
+        Assertions.assertFalse(result.isFound());
+        Assertions.assertEquals(result.getPosition(), pos);
+    }
+
 }
